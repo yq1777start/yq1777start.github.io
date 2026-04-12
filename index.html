@@ -1,583 +1,683 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yang Qing · Applied Economics & Product Strategy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>杨晴 | 个人主页</title>
+  <meta
+    name="description"
+    content="杨晴的个人主页，聚焦应用经济学、产品策略、商业分析与个人项目。"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
-      --pink-deep:   #e8899a;
-      --pink-mid:    #f0aab8;
-      --pink-soft:   #fce4e9;
-      --pink-pale:   #fff7f8;
-      --ink:         #2d1a20;
-      --muted:       #9a7880;
-      --white:       #ffffff;
+      --rose-deep: #d76f82;
+      --rose-main: #eb9aaa;
+      --rose-soft: #f8dde2;
+      --rose-pale: #fff7f8;
+      --ink: #2d1c22;
+      --muted: #7c636b;
+      --line: rgba(215, 111, 130, 0.18);
+      --white: #ffffff;
+      --shadow: 0 24px 60px rgba(112, 45, 61, 0.14);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--pink-pale);
+      font-family: "Noto Sans SC", sans-serif;
       color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(235, 154, 170, 0.28), transparent 28%),
+        linear-gradient(180deg, #fffafa 0%, #fff4f6 44%, #fff8f8 100%);
       overflow-x: hidden;
     }
 
-    /* ── NOISE TEXTURE OVERLAY ── */
     body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 100;
-    }
-
-    /* ── HEADER ── */
-    header {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .header-left {
-      background: var(--pink-deep);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 3.5rem;
-      position: relative;
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
       z-index: 1;
     }
 
-    .header-left::after {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 260px; height: 260px;
-      border-radius: 50%;
-      background: var(--pink-mid);
-      opacity: 0.35;
+    a { color: inherit; }
+
+    .page-shell {
+      position: relative;
+      z-index: 2;
     }
 
-    .tag {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
+    .hero {
+      min-height: 100vh;
+      padding: 2rem;
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-card {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-main {
+      padding: 5rem 4rem;
+      background:
+        linear-gradient(135deg, rgba(215, 111, 130, 0.97), rgba(235, 154, 170, 0.92)),
+        var(--rose-deep);
+      color: var(--white);
+      position: relative;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      right: -80px;
+      top: -80px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .eyebrow,
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--pink-soft);
-      margin-bottom: 1.2rem;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.2s forwards;
+      font-weight: 600;
+    }
+
+    .eyebrow {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+    }
+
+    h1,
+    .section-title,
+    .project-title,
+    .contact-email {
+      font-family: "Noto Serif SC", serif;
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
       line-height: 1.08;
-      color: var(--white);
-      opacity: 0;
-      animation: fadeUp 0.7s 0.35s forwards;
+      letter-spacing: 0.02em;
     }
 
-    h1 em {
-      font-style: italic;
-      color: var(--pink-soft);
+    .hero-lead {
+      margin-top: 1.5rem;
+      max-width: 42rem;
+      font-size: 1rem;
+      line-height: 1.95;
+      color: rgba(255, 255, 255, 0.86);
     }
 
-    .subtitle {
-      margin-top: 1.4rem;
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.65;
-      max-width: 340px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.5s forwards;
-    }
-
-    .cta-row {
-      margin-top: 2.4rem;
+    .hero-actions {
+      margin-top: 2.2rem;
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.65s forwards;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.65rem 1.4rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-      border: none;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
-
-    .btn-white  { background: var(--white); color: var(--pink-deep); }
-    .btn-ghost  { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.5); }
-
-    /* ── HEADER RIGHT ── */
-    .header-right {
-      background: var(--pink-soft);
-      display: flex;
-      flex-direction: column;
       justify-content: center;
-      padding: 4rem 3.5rem;
-      gap: 2rem;
+      gap: 0.45rem;
+      padding: 0.86rem 1.45rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
-    .stat-block {
-      opacity: 0;
-      animation: fadeUp 0.7s forwards;
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(37, 18, 24, 0.16);
     }
-    .stat-block:nth-child(1) { animation-delay: 0.5s; }
-    .stat-block:nth-child(2) { animation-delay: 0.65s; }
-    .stat-block:nth-child(3) { animation-delay: 0.8s; }
 
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
-      color: var(--pink-deep);
+    .btn-primary {
+      background: var(--white);
+      color: var(--rose-deep);
+    }
+
+    .btn-secondary {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-side {
+      padding: 3rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 221, 226, 0.9));
+      display: grid;
+      gap: 1rem;
+      align-content: center;
+    }
+
+    .stat-card {
+      padding: 1.5rem;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(235, 154, 170, 0.22);
+      box-shadow: 0 14px 30px rgba(112, 45, 61, 0.08);
+    }
+
+    .stat-value {
+      font-family: "Noto Serif SC", serif;
+      color: var(--rose-deep);
+      font-size: 2.35rem;
       line-height: 1;
     }
+
     .stat-label {
-      font-size: 0.8rem;
-      font-weight: 500;
+      margin-top: 0.45rem;
       color: var(--muted);
-      margin-top: 0.25rem;
-      letter-spacing: 0.04em;
-    }
-
-    /* ── SECTIONS ── */
-    section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-
-    .section-label {
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--pink-mid);
-      margin-bottom: 0.7rem;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 2.5rem;
-    }
-
-    /* ── VIBE CODING BADGE ── */
-    .vibe-banner {
-      background: var(--pink-deep);
-      color: var(--white);
-      padding: 0.5rem 0;
-      overflow: hidden;
-      position: relative;
-    }
-    .vibe-track {
-      display: flex;
-      gap: 3rem;
-      animation: marquee 18s linear infinite;
-      white-space: nowrap;
-    }
-    .vibe-track span {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .dot { color: var(--pink-soft); }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ── SKILLS GRID ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 1rem;
-    }
-
-    .skill-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 1.4rem 1.6rem;
-      border: 1.5px solid var(--pink-soft);
-      transition: border-color 0.2s, transform 0.2s;
-      cursor: default;
-    }
-    .skill-card:hover {
-      border-color: var(--pink-mid);
-      transform: translateY(-3px);
-    }
-
-    .skill-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.6rem;
-    }
-    .skill-name {
-      font-weight: 500;
       font-size: 0.9rem;
-      color: var(--ink);
-    }
-    .skill-desc {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 0.3rem;
-      line-height: 1.5;
-    }
-
-    /* ── EXPERIENCE TIMELINE ── */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .tl-item {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 0 2rem;
-      position: relative;
-    }
-
-    .tl-item + .tl-item { margin-top: 2rem; }
-
-    .tl-date {
-      text-align: right;
-      padding-top: 0.15rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-weight: 500;
-      line-height: 1.4;
-    }
-
-    .tl-body {
-      border-left: 2px solid var(--pink-soft);
-      padding-left: 1.8rem;
-      padding-bottom: 2rem;
-      position: relative;
-    }
-
-    .tl-body::before {
-      content: '';
-      position: absolute;
-      left: -6px; top: 5px;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--pink-deep);
-      border: 2px solid var(--pink-pale);
-    }
-
-    .tl-role {
-      font-weight: 500;
-      font-size: 0.95rem;
-      color: var(--ink);
-    }
-    .tl-company {
-      font-size: 0.82rem;
-      color: var(--pink-deep);
-      font-weight: 500;
-      margin-top: 0.15rem;
-    }
-    .tl-desc {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-top: 0.5rem;
       line-height: 1.6;
     }
 
-    /* ── ABOUT STRIP ── */
+    .ticker {
+      overflow: hidden;
+      background: var(--rose-deep);
+      color: var(--white);
+      padding: 0.7rem 0;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 2.5rem;
+      white-space: nowrap;
+      animation: marquee 18s linear infinite;
+      width: max-content;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    section,
     .about-strip {
-      background: var(--white);
-      border-top: 1.5px solid var(--pink-soft);
-      border-bottom: 1.5px solid var(--pink-soft);
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .section-label {
+      color: var(--rose-main);
+      margin-bottom: 0.9rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.25;
+      margin-bottom: 2rem;
+    }
+
+    .about-strip {
+      margin-top: 2.25rem;
+      margin-bottom: 0.5rem;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(235, 154, 170, 0.16);
+      box-shadow: var(--shadow);
     }
 
     .about-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 4rem;
-      align-items: center;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3rem;
+      padding: 3rem;
+      align-items: start;
     }
 
     .about-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      line-height: 1.2;
-      color: var(--ink);
+      font-family: "Noto Serif SC", serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.45;
     }
-
-    .about-heading em {
-      color: var(--pink-deep);
-      font-style: italic;
-    }
-
-    .about-body {
-      font-size: 0.92rem;
-      line-height: 1.85;
-      color: var(--muted);
-    }
-
-    .about-body p + p { margin-top: 1rem; }
 
     .highlight {
-      color: var(--pink-deep);
-      font-weight: 500;
+      color: var(--rose-deep);
+      font-weight: 700;
     }
 
-    /* ── CONTACT ── */
-    .contact-section {
-      text-align: center;
-      padding: 5rem 2rem;
+    .about-body p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 2;
     }
-    .contact-section .section-label { justify-content: center; display: flex; }
+
+    .about-body p + p {
+      margin-top: 1rem;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-card,
+    .skill-card {
+      padding: 1.6rem;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 24px rgba(112, 45, 61, 0.08);
+    }
+
+    .project-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--rose-soft);
+      color: var(--rose-deep);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-title {
+      margin-top: 1rem;
+      font-size: 1.45rem;
+      line-height: 1.35;
+    }
+
+    .project-desc {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 0.93rem;
+    }
+
+    .project-links {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .mini-link {
+      text-decoration: none;
+      color: var(--rose-deep);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-name {
+      margin-top: 0.65rem;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .skill-desc {
+      margin-top: 0.45rem;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.9rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 24px rgba(112, 45, 61, 0.06);
+    }
+
+    .timeline-date {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .timeline-role {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .timeline-company {
+      margin-top: 0.35rem;
+      color: var(--rose-deep);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .timeline-desc {
+      margin-top: 0.7rem;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 0.93rem;
+    }
+
+    .contact-wrap {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .contact-copy {
+      width: min(660px, 100%);
+      margin: 0 auto 1.4rem;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 0.96rem;
+    }
 
     .contact-email {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
-      color: var(--ink);
+      display: inline-block;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
       text-decoration: none;
-      border-bottom: 2px solid var(--pink-mid);
-      transition: color 0.2s;
+      color: var(--ink);
+      border-bottom: 2px solid var(--rose-main);
+      padding-bottom: 0.18rem;
     }
-    .contact-email:hover { color: var(--pink-deep); }
 
-    .social-row {
-      margin-top: 2rem;
+    .contact-actions {
+      margin-top: 1.8rem;
       display: flex;
-      gap: 0.8rem;
       justify-content: center;
       flex-wrap: wrap;
+      gap: 0.85rem;
     }
 
-    /* ── FOOTER ── */
+    .contact-actions .btn {
+      background: var(--white);
+      color: var(--rose-deep);
+      border-color: var(--line);
+    }
+
     footer {
-      background: var(--ink);
-      color: rgba(255,255,255,0.4);
+      padding: 1.6rem 1rem 2.4rem;
       text-align: center;
-      font-size: 0.75rem;
-      padding: 1.4rem;
-      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
     }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @media (max-width: 900px) {
+      .hero-card,
+      .about-inner,
+      .grid-two,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .hero-side,
+      .about-inner,
+      .contact-wrap {
+        padding: 2rem;
+      }
+
+      .hero {
+        padding: 1rem;
+      }
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      header { grid-template-columns: 1fr; }
-      .header-right { display: none; }
-      .header-left { min-height: 100vh; }
-      .about-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-      .tl-item { grid-template-columns: 1fr; }
-      .tl-date { text-align: left; margin-bottom: 0.5rem; }
+    @media (max-width: 640px) {
+      section {
+        padding: 4.2rem 0;
+      }
+
+      .hero-main {
+        padding-top: 4.5rem;
+      }
+
+      .hero-actions,
+      .project-links,
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-card">
+        <div class="hero-main">
+          <p class="eyebrow">Applied Economics · Product Strategy · Analytics</p>
+          <h1>杨晴</h1>
+          <p class="hero-lead">
+            我目前就读于新加坡南洋理工大学应用经济学硕士，关注商业分析、产品策略与数据驱动决策。
+            我希望把经济学训练、财务分析能力和一线业务经验结合起来，做出既有洞察也有执行力的产品与项目。
+          </p>
+          <div class="hero-actions">
+            <a
+              href="mailto:QING006@e.ntu.edu.sg?subject=%E6%89%93%E4%B8%AA%E6%8B%9B%E5%91%BC&body=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%B8%8E%E4%BD%A0%E8%81%8A%E8%81%8A..."
+              class="btn btn-primary"
+            >打个招呼</a>
+            <a href="#projects" class="btn btn-secondary">查看项目</a>
+          </div>
+        </div>
 
-<!-- ── HERO ── -->
-<header>
-  <div class="header-left">
-    <p class="tag">Applied Economics · Product Strategy</p>
-    <h1>Yang <em>Qing</em><br/>晴</h1>
-    <p class="subtitle">
-      MSc student at NTU Singapore. I turn data into decisions —
-      and lately, into products. Currently exploring the intersection
-      of economics, analytics, and vibe coding.
-    </p>
-    <div class="cta-row">
-      <a href="/cdn-cgi/l/email-protection#17465e595027272157723979636239727362396470" class="btn btn-white">✉ Say hello</a>
-      <a href="#work" class="btn btn-ghost">↓ My work</a>
-    </div>
-  </div>
+        <aside class="hero-side">
+          <div class="stat-card">
+            <div class="stat-value">3.81</div>
+            <div class="stat-label">本科 GPA，排名前 10%</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">11 / 13</div>
+            <div class="stat-label">ACCA 已通过 11 门核心课程</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">7.0</div>
+            <div class="stat-label">雅思成绩，具备中英文学习与沟通能力</div>
+          </div>
+        </aside>
+      </div>
+    </header>
 
-  <div class="header-right">
-    <div class="stat-block">
-      <div class="stat-num">3.81</div>
-      <div class="stat-label">GPA · Top 10% · GDUFS</div>
+    <div class="ticker">
+      <div class="ticker-track">
+        <span>应用经济学</span>
+        <span>商业分析</span>
+        <span>产品策略</span>
+        <span>Python · SQL · Stata · Excel</span>
+        <span>行业研究</span>
+        <span>审计与财务分析</span>
+        <span>跨境电商运营</span>
+        <span>应用经济学</span>
+        <span>商业分析</span>
+        <span>产品策略</span>
+        <span>Python · SQL · Stata · Excel</span>
+        <span>行业研究</span>
+        <span>审计与财务分析</span>
+        <span>跨境电商运营</span>
+      </div>
     </div>
-    <div class="stat-block">
-      <div class="stat-num">11</div>
-      <div class="stat-label">ACCA Core Papers Passed</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">7.0</div>
-      <div class="stat-label">IELTS Band Score</div>
-    </div>
-  </div>
-</header>
 
-<!-- ── MARQUEE ── -->
-<div class="vibe-banner">
-  <div class="vibe-track">
-    <span>Vibe Coding ✦</span>
-    <span class="dot">·</span>
-    <span>Python · Pandas · SQL · Stata ✦</span>
-    <span class="dot">·</span>
-    <span>Product Strategy ✦</span>
-    <span class="dot">·</span>
-    <span>Data Analysis ✦</span>
-    <span class="dot">·</span>
-    <span>Business Research ✦</span>
-    <span class="dot">·</span>
-    <!-- duplicate for seamless loop -->
-    <span>Vibe Coding ✦</span>
-    <span class="dot">·</span>
-    <span>Python · Pandas · SQL · Stata ✦</span>
-    <span class="dot">·</span>
-    <span>Product Strategy ✦</span>
-    <span class="dot">·</span>
-    <span>Data Analysis ✦</span>
-    <span class="dot">·</span>
-    <span>Business Research ✦</span>
-    <span class="dot">·</span>
-  </div>
-</div>
-
-<!-- ── ABOUT ── -->
-<div class="about-strip">
-  <div class="about-inner">
-    <h2 class="about-heading">A business mind<br/>driven by <em>data</em></h2>
-    <div class="about-body">
-      <p>
-        I'm an <span class="highlight">MSc Applied Economics student at NTU Singapore</span> with a
-        strong foundation in accounting, financial analysis, and business research. My ACCA qualification
-        (11/13 papers) gives me a rigorous lens for understanding how businesses create and measure value.
-      </p>
-      <p>
-        Across roles in <span class="highlight">securities research, audit, and e-commerce operations</span>,
-        I've turned messy data into clear decisions — from market trend reports to ad spend optimization.
-        I'm now channeling that commercial instinct toward <span class="highlight">product strategy</span>,
-        where business logic meets user insight.
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- ── SKILLS ── -->
-<section>
-  <p class="section-label">What I work with</p>
-  <h2 class="section-title">Skills &amp; Tools</h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-icon">🐍</div>
-      <div class="skill-name">Python</div>
-      <div class="skill-desc">Pandas, Matplotlib — data wrangling &amp; visualization</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🗄️</div>
-      <div class="skill-name">SQL</div>
-      <div class="skill-desc">Querying &amp; analyzing structured datasets</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">📊</div>
-      <div class="skill-name">Stata</div>
-      <div class="skill-desc">Econometric modeling &amp; economic forecasting</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">📋</div>
-      <div class="skill-name">Excel</div>
-      <div class="skill-desc">VLOOKUP, pivot tables, financial modeling</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">⚡</div>
-      <div class="skill-name">Vibe Coding</div>
-      <div class="skill-desc">Rapid prototyping with AI — ship first, refine later</div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🔍</div>
-      <div class="skill-name">Business Research</div>
-      <div class="skill-desc">Industry deep-dives, competitive analysis, SEO</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── EXPERIENCE ── -->
-<section id="work" style="padding-top: 0;">
-  <p class="section-label">Where I've been</p>
-  <h2 class="section-title">Experience</h2>
-  <div class="timeline">
-
-    <div class="tl-item">
-      <div class="tl-date">Jun – Sep 2024</div>
-      <div class="tl-body">
-        <div class="tl-role">Industry Research Intern (Analyst)</div>
-        <div class="tl-company">CITIC Securities · Remote</div>
-        <div class="tl-desc">
-          Researched industry trends and regulatory policies to produce data-backed reports for investment strategy.
-          Monitored competitor dynamics and market share shifts, drafting forecasts for senior stakeholders.
-          Translated complex datasets into clean visual narratives to support strategic decision-making.
+    <div class="about-strip">
+      <div class="about-inner">
+        <h2 class="about-heading">
+          用数据理解商业，
+          <br />
+          也用项目把想法做出来
+        </h2>
+        <div class="about-body">
+          <p>
+            我拥有<span class="highlight">会计、金融分析、商业研究</span>的复合背景，本科阶段成绩稳定，
+            同时完成了大部分 ACCA 课程。这样的训练让我更习惯从数字、结构和业务逻辑出发理解问题。
+          </p>
+          <p>
+            在<span class="highlight">中信证券、立信德豪以及跨境电商运营</span>相关实习中，我持续在做一件事：
+            把复杂信息整理成可以支持判断和行动的结论。现在我也开始把这种能力延伸到网页项目和个人作品中。
+          </p>
         </div>
       </div>
     </div>
 
-    <div class="tl-item">
-      <div class="tl-date">Jan – Feb 2024</div>
-      <div class="tl-body">
-        <div class="tl-role">Audit Intern</div>
-        <div class="tl-company">BDO China (Shu Lun Pan CPAs) · Shenzhen, China</div>
-        <div class="tl-desc">
-          Executed onsite testing for manufacturing clients including fixed asset monitoring and inventory counts.
-          Prepared audit working papers per standards, identifying discrepancies in financial data.
-          Coordinated field verifications across multiple cities (Zhuhai, Dongguan) with the audit team.
+    <section id="projects">
+      <p class="section-label">Projects</p>
+      <h2 class="section-title">项目链接</h2>
+      <div class="grid-two">
+        <article class="project-card">
+          <span class="project-tag">Web Project</span>
+          <h3 class="project-title">PulseMuse</h3>
+          <p class="project-desc">
+            这是我简历中展示的网页项目链接，适合作为个人作品入口，方便快速查看页面效果与项目表达。
+          </p>
+          <div class="project-links">
+            <a class="mini-link" href="https://www.pulsemuse.top" target="_blank" rel="noreferrer">访问网站</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">Portfolio</span>
+          <h3 class="project-title">个人主页</h3>
+          <p class="project-desc">
+            这是我的中文个人主页，集中展示教育背景、实习经历、技能结构与联系方式，也会持续补充新的项目成果。
+          </p>
+          <div class="project-links">
+            <a class="mini-link" href="https://yq1777start.github.io/" target="_blank" rel="noreferrer">打开主页</a>
+            <a class="mini-link" href="#contact">联系我</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">Skills</p>
+      <h2 class="section-title">技能与工具</h2>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <div class="skill-name">Python</div>
+          <div class="skill-desc">使用 Pandas、Matplotlib 等工具进行数据清洗、分析与可视化。</div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-name">SQL</div>
+          <div class="skill-desc">能够面向结构化数据完成提取、查询与分析，支持业务判断。</div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-name">Stata</div>
+          <div class="skill-desc">用于经济学分析、计量建模与基础预测研究。</div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-name">Excel</div>
+          <div class="skill-desc">熟悉 VLOOKUP、数据透视表与基础财务建模场景。</div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-name">商业研究</div>
+          <div class="skill-desc">擅长行业资料梳理、竞品对比、政策追踪与结论输出。</div>
+        </article>
+        <article class="skill-card">
+          <div class="skill-name">产品表达</div>
+          <div class="skill-desc">能够把分析结果整理成页面、提案或结构清晰的项目呈现。</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <p class="section-label">Experience</p>
+      <h2 class="section-title">经历概览</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-date">2024.06 - 2024.09</div>
+          <div>
+            <div class="timeline-role">行业研究实习生（分析方向）</div>
+            <div class="timeline-company">中信证券 · 远程</div>
+            <div class="timeline-desc">
+              参与行业趋势与监管政策研究，产出支持投资判断的研究材料；跟踪竞品格局和市场份额变化，
+              并将复杂数据整理成更容易沟通的图表与观点，服务决策场景。
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">2024.01 - 2024.02</div>
+          <div>
+            <div class="timeline-role">审计实习生</div>
+            <div class="timeline-company">立信德豪会计师事务所 · 深圳</div>
+            <div class="timeline-desc">
+              参与制造业客户现场审计测试，包括固定资产盘点与存货监盘；整理审计底稿并核对财务数据差异，
+              配合团队完成珠海、东莞等地的实地核查工作。
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">2023.07 - 2023.09</div>
+          <div>
+            <div class="timeline-role">电商运营实习生</div>
+            <div class="timeline-company">深圳市康茂思电子商务有限公司 · 深圳</div>
+            <div class="timeline-desc">
+              负责关键词调研与商品信息优化，提升搜索曝光与点击表现；结合 ROI、CPC 等指标分析投放与销售数据，
+              优化广告预算与转化策略，并与采购、物流协同保证补货效率。
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="about-strip" id="contact">
+      <div class="contact-wrap">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">欢迎联系我</h2>
+        <p class="contact-copy">
+          如果你想交流产品、商业分析、网页项目，或有相关实习与合作机会，欢迎直接邮件联系我。
+          点击下方邮箱或“打个招呼”，都会自动打开你的默认发邮件界面。
+        </p>
+        <a href="mailto:QING006@e.ntu.edu.sg" class="contact-email">QING006@e.ntu.edu.sg</a>
+        <div class="contact-actions">
+          <a class="btn" href="mailto:QING006@e.ntu.edu.sg?subject=%E6%89%93%E4%B8%AA%E6%8B%9B%E5%91%BC">发送邮件</a>
+          <a class="btn" href="tel:+861352883626">+86 1352883626</a>
+          <a class="btn" href="https://www.linkedin.com/in/yang-qing-376621379" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
     </div>
 
-    <div class="tl-item">
-      <div class="tl-date">Jul – Sep 2023</div>
-      <div class="tl-body">
-        <div class="tl-role">E-commerce Operations Intern</div>
-        <div class="tl-company">Shenzhen Kangmos E-Commerce · Shenzhen, China</div>
-        <div class="tl-desc">
-          Optimized product listings via keyword research, embedding high-traffic terms to boost search visibility and CTR.
-          Analyzed daily sales and ad metrics (ROI, CPC) to refine spend strategies and improve conversion rates.
-          Coordinated with procurement and logistics teams to manage replenishment, maintaining 100% stock availability.
-        </div>
-      </div>
-    </div>
-
+    <footer>
+      © 2026 杨晴 · Personal Homepage
+    </footer>
   </div>
-</section>
-
-<!-- ── CONTACT ── -->
-<div class="about-strip">
-  <div class="contact-section">
-    <p class="section-label">Let's connect</p>
-    <h2 class="section-title" style="margin-bottom: 1rem;">Open to product &amp;<br/>strategy opportunities</h2>
-    <a href="mailto:QING006@e.ntu.edu.sg" class="contact-email">QING006@e.ntu.edu.sg</a>
-    <div class="social-row">
-      <a href="tel:+861352883626" class="btn btn-white" style="color: var(--pink-deep); border: 1.5px solid var(--pink-soft);">
-        📞 +86 1352883626
-      </a>
-      <a href="https://www.linkedin.com/in/yang-qing-376621379" class="btn btn-white" style="color: var(--pink-deep); border: 1.5px solid var(--pink-soft);">
-        💼 LinkedIn
-      </a>
-      <a href="#" class="btn btn-white" style="color: var(--pink-deep); border: 1.5px solid v
+</body>
+</html>
