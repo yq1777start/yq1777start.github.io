@@ -334,6 +334,57 @@
       font-size: 0.9rem;
     }
 
+    .detail-box {
+      margin-top: 1rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.9rem;
+    }
+
+    .detail-box summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--rose-deep);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .detail-box summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .detail-box summary::before {
+      content: "▾";
+      font-size: 0.85rem;
+      transition: transform 0.2s ease;
+    }
+
+    .detail-box[open] summary::before {
+      transform: rotate(180deg);
+    }
+
+    .detail-body {
+      margin-top: 0.95rem;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 0.92rem;
+    }
+
+    .detail-body p + p {
+      margin-top: 0.75rem;
+    }
+
+    .detail-list {
+      margin-top: 0.25rem;
+      padding-left: 1.1rem;
+    }
+
+    .detail-list li + li {
+      margin-top: 0.6rem;
+    }
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -559,30 +610,25 @@
     <section id="projects">
       <p class="section-label">Projects</p>
       <h2 class="section-title">项目链接</h2>
-      <div class="grid-two">
-        <article class="project-card">
-          <span class="project-tag">Web Project</span>
-          <h3 class="project-title">PulseMuse</h3>
-          <p class="project-desc">
-            这是我简历中展示的网页项目链接，适合作为个人作品入口，方便快速查看页面效果与项目表达。
-          </p>
-          <div class="project-links">
-            <a class="mini-link" href="https://www.pulsemuse.top" target="_blank" rel="noreferrer">访问网站</a>
+      <article class="project-card">
+        <span class="project-tag">2026.04</span>
+        <h3 class="project-title">PulseMuse · 读懂身体信号的 AI 健身教练</h3>
+        <p class="project-desc">
+          概述：面向健身计划个体适配不足与用户留存问题，设计 AI 驱动的个性化健身产品方案，聚焦训练、饮食与生理周期的动态匹配。
+        </p>
+        <div class="project-links">
+          <a class="mini-link" href="https://www.pulsemuse.top" target="_blank" rel="noreferrer">访问项目</a>
+        </div>
+        <details class="detail-box">
+          <summary>展开完整项目描述</summary>
+          <div class="detail-body">
+            <p>【用户问题定义】拆解“训练—饮食—状态”决策链路，定位用户流失关键在于个体差异未被有效纳入决策</p>
+            <p>【产品框架设计】构建 AI 驱动的个性化健身框架，设计体征 Onboarding、训练与营养方案生成及动态反馈机制，形成“画像—策略—执行—优化”闭环</p>
+            <p>【女性场景适配】以女性用户为核心，设计经期适配模式，将生理周期拆解为四阶段并约束训练与营养策略，实现对生理节律的动态适配</p>
+            <p>【场景验证与优化】选取“爬坡训练”作为典型场景，构建分阶段训练模型与反馈机制（心率/体感/发力部位），通过多轮数据迭代优化参数，实现训练方案向个体最优解收敛</p>
           </div>
-        </article>
-
-        <article class="project-card">
-          <span class="project-tag">Portfolio</span>
-          <h3 class="project-title">个人主页</h3>
-          <p class="project-desc">
-            这是我的中文个人主页，集中展示教育背景、实习经历、技能结构与联系方式，也会持续补充新的项目成果。
-          </p>
-          <div class="project-links">
-            <a class="mini-link" href="https://yq1777start.github.io/" target="_blank" rel="noreferrer">打开主页</a>
-            <a class="mini-link" href="#contact">联系我</a>
-          </div>
-        </article>
-      </div>
+        </details>
+      </article>
     </section>
 
     <section>
@@ -621,26 +667,23 @@
       <h2 class="section-title">经历概览</h2>
       <div class="timeline">
         <article class="timeline-item">
-          <div class="timeline-date">2024.06 - 2024.09</div>
+          <div class="timeline-date">2024.06 - 2025.09</div>
           <div>
-            <div class="timeline-role">行业研究实习生（分析方向）</div>
-            <div class="timeline-company">中信证券 · 远程</div>
+            <div class="timeline-role">行业研究实习生</div>
+            <div class="timeline-company">中信证券 CITIC Securities</div>
             <div class="timeline-desc">
-              参与行业趋势与监管政策研究，产出支持投资判断的研究材料；跟踪竞品格局和市场份额变化，
-              并将复杂数据整理成更容易沟通的图表与观点，服务决策场景。
+              概述：聚焦汽车智能化行业研究，围绕赛道趋势、竞争格局与重点公司基本面跟踪，支持专题研究与投资分析输出。
             </div>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-date">2024.01 - 2024.02</div>
-          <div>
-            <div class="timeline-role">审计实习生</div>
-            <div class="timeline-company">立信德豪会计师事务所 · 深圳</div>
-            <div class="timeline-desc">
-              参与制造业客户现场审计测试，包括固定资产盘点与存货监盘；整理审计底稿并核对财务数据差异，
-              配合团队完成珠海、东莞等地的实地核查工作。
-            </div>
+            <details class="detail-box">
+              <summary>展开完整实习经历</summary>
+              <div class="detail-body">
+                <ul class="detail-list">
+                  <li>搭建汽车智能化赛道分析框架，从产业链结构、竞争格局与市场空间等维度识别关键驱动因素</li>
+                  <li>梳理 50+ 家重点企业信息，参与 10 篇行业专题研究，围绕产品定位、商业模式及竞争策略开展横向分析</li>
+                  <li>对头部厂商产品矩阵与定价体系进行定量拆解，跟踪关键经营指标，支持判断行业竞争格局与企业发展策略</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </article>
 
@@ -648,11 +691,40 @@
           <div class="timeline-date">2023.07 - 2023.09</div>
           <div>
             <div class="timeline-role">电商运营实习生</div>
-            <div class="timeline-company">深圳市康茂思电子商务有限公司 · 深圳</div>
+            <div class="timeline-company">深圳康默斯电子商务有限公司</div>
             <div class="timeline-desc">
-              负责关键词调研与商品信息优化，提升搜索曝光与点击表现；结合 ROI、CPC 等指标分析投放与销售数据，
-              优化广告预算与转化策略，并与采购、物流协同保证补货效率。
+              概述：参与跨境电商店铺经营分析与增长优化，围绕流量、转化与供给协同支持广告投放和运营策略落地。
             </div>
+            <details class="detail-box">
+              <summary>展开完整实习经历</summary>
+              <div class="detail-body">
+                <ul class="detail-list">
+                  <li>拆解单店 GMV 增长链路，围绕流量获取、点击转化与供给保障等核心环节定位增长瓶颈，并协同 SEO、广告投放与供应链团队推进优化</li>
+                  <li>基于 ROI、CPC、CTR 等指标分析广告表现，通过关键词优化、主图测试与出价调整，推动核心产品 CTR 提升 22%</li>
+                  <li>针对促销期库存与物流不确定性，调研海外仓备货与补货机制，协助建立库存预警与应急补货方案，实现促销期 100% 库存可用性</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">2024.01 - 2024.02</div>
+          <div>
+            <div class="timeline-role">审计实习生</div>
+            <div class="timeline-company">立信会计师事务所 BDO</div>
+            <div class="timeline-desc">
+              概述：参与制造业客户年度审计工作，协助完成凭证抽核、流程检查与现场盘点，支持审计核查与底稿整理。
+            </div>
+            <details class="detail-box">
+              <summary>展开完整实习经历</summary>
+              <div class="detail-body">
+                <ul class="detail-list">
+                  <li>参与制造业客户年审项目，对数千份凭证及经营数据进行抽样核验，提升对业务流程与数据逻辑的理解</li>
+                  <li>参与采购、生产、仓储等流程核查及工厂盘点，强化数据严谨性与跨团队协作能力</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </article>
       </div>
@@ -669,7 +741,7 @@
         <a href="mailto:QING006@e.ntu.edu.sg" class="contact-email">QING006@e.ntu.edu.sg</a>
         <div class="contact-actions">
           <a class="btn" href="mailto:QING006@e.ntu.edu.sg?subject=%E6%89%93%E4%B8%AA%E6%8B%9B%E5%91%BC">发送邮件</a>
-          <a class="btn" href="tel:+861352883626">+86 1352883626</a>
+          <a class="btn" href="tel:+8613528833626">+86 13528833626</a>
           <a class="btn" href="https://www.linkedin.com/in/yang-qing-376621379" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
